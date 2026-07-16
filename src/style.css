@@ -5,32 +5,28 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    -apple-system,
+    sans-serif;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  transition: all 1s ease;
 }
 
 #app {
   text-align: center;
-  color: white;
+  color: black;
   padding: 40px;
-  backdrop-filter: blur(10px);
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 h1 {
   font-size: 4rem;
   margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 p {
   font-size: 1.5rem;
-  opacity: 0.9;
 }
