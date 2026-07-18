@@ -3,19 +3,15 @@ fetch(
 )
   .then((response) => response.json())
   .then((data) => {
-    const current = data.current || data.current_weather || {};
-    const temp = current.temperature_2m ?? current.temperature ?? "--";
-    const code = current.weather_code ?? current.weathercode;
-    const isDay = current.is_day ?? current.is_day;
+    const current = data.current || {};
+    const temp = current.temperature_2m ?? "--";
+    const code = current.weather_code ?? 0;
+    const isDay = current.is_day === 1;
 
     const description = getWeatherDescription(code, isDay);
 
-    document.querySelector("#weather").innerHTML = `
-      <h1>~${temp}°C</h1>
-      <p>${description} - Toronto</p>
-    `;
+    document.querySelector("#weather").innerHTML = `~${temp}°C<br>${description} - Toronto`;
 
-    // FIXED: Removed the leading slash (/) so it looks in the correct folder
     let bgImage = "src/WINDOWS_XP.jpg";
     let tabColor = "";
 
@@ -43,7 +39,6 @@ fetch(
       tabColor = "lightgray";
     }
 
-    // FIXED: Added quotes to the url() CSS property
     document.body.style.backgroundImage = `url('${bgImage}')`;
 
     document.querySelector("#weather").style.backgroundColor = "transparent";
@@ -51,33 +46,20 @@ fetch(
     const topBox = document.querySelector(".top-box");
     if (topBox) {
       topBox.style.backgroundColor = tabColor;
-    } else {
-      const weatherDiv = document.querySelector("#weather");
-      if(weatherDiv && weatherDiv.parentElement) {
-        weatherDiv.parentElement.style.backgroundColor = tabColor;
-      }
     }
 
     const searchBox = document.querySelector("#searchBox");
     if (searchBox) {
-        searchBox.style.backgroundColor = tabColor;
+      searchBox.style.backgroundColor = tabColor;
     }
 
     const middleBox = document.querySelector(".middle-box");
     if (middleBox) {
       middleBox.style.backgroundColor = tabColor;
     }
-
-    const middleLink =
-      document.querySelector(".middle-box a") ||
-      document.querySelector("#middle-box a");
-    if (middleLink) {
-      middleLink.style.backgroundColor = "transparent";
-    }
   })
   .catch((err) => {
-    document.querySelector("#weather").innerHTML =
-      `<p>Error: ${err.message}</p>`;
+    document.querySelector("#weather").innerHTML = `Error: ${err.message}`;
   });
 
 document.querySelector("#searchBox").addEventListener("keypress", (e) => {
