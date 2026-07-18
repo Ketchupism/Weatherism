@@ -1,5 +1,5 @@
 fetch(
-  `https://api.open-meteo.com/v1/forecast?latitude=43.68&longitude=-79.63&current=temperature_2m,weather_code,is_day&timezone=auto`,
+  `https://api.open-meteo.com/v1/forecast?latitude=43.68&longitude=-79.63&current=temperature_2m,weather_code,is_day&timezone=auto`
 )
   .then((response) => response.json())
   .then((data) => {
@@ -15,7 +15,7 @@ fetch(
     `;
 
     let bgImage = "WINDOWS_XP.jpg";
-    let tabColor = "";
+    let tabColor = "rgba(255, 255, 255, 0.9)";
 
     if (description === "Clear sky") {
       bgImage = "WINDOWS_XP.jpg";
@@ -23,42 +23,37 @@ fetch(
       bgImage = "WINDOWS_XPNIGHT.jpg";
     } else if (description === "Cloudy night") {
       bgImage = "WINDOWS_XPNIGHT.jpg";
-      tabColor = "darkgray";
+      tabColor = "rgba(169, 169, 169, 0.9)";
     } else if (description === "Cloudy") {
       bgImage = "WINDOWS_XPCLOUDY.jpg";
-      tabColor = "lightgray";
+      tabColor = "rgba(211, 211, 211, 0.9)";
     } else if (description.includes("Foggy")) {
       bgImage = "WINDOWS_XPFOGGY.jpg";
-      tabColor = "lightgray";
+      tabColor = "rgba(211, 211, 211, 0.9)";
     } else if (description.includes("Rainy")) {
       bgImage = "WINDOWS_XPRAINY.jpg";
-      tabColor = "lightgray";
+      tabColor = "rgba(211, 211, 211, 0.9)";
     } else if (description.includes("Snowing")) {
       bgImage = "WINDOWS_XPSNOWY.jpg";
-      tabColor = "lightgray";
+      tabColor = "rgba(211, 211, 211, 0.9)";
     } else if (description.includes("Thunderstorm")) {
       bgImage = "WINDOWS_XPTHUNDERSTORM.jpg";
-      tabColor = "lightgray";
+      tabColor = "rgba(211, 211, 211, 0.9)";
     }
 
     document.body.style.backgroundImage = `url('src/${bgImage}')`;
-    document.body.style.backgroundSize = "cover";
-    document.body.style.backgroundPosition = "center";
-    document.body.style.backgroundAttachment = "fixed";
 
-    document.querySelector("#weather").style.backgroundColor = "transparent";
-
-    const topBox = document.querySelector(".top-box");
-    if (topBox) topBox.style.backgroundColor = tabColor;
+    const weatherBox = document.querySelector(".weather-box");
+    if (weatherBox) weatherBox.style.backgroundColor = tabColor;
     
-    const searchBox = document.querySelector("#searchBox");
-    if (searchBox) searchBox.style.backgroundColor = tabColor;
-
     const middleBox = document.querySelector(".middle-box");
     if (middleBox) middleBox.style.backgroundColor = tabColor;
+
+    const searchBox = document.querySelector(".search-box");
+    if (searchBox) searchBox.style.backgroundColor = tabColor;
   })
   .catch((err) => {
-    document.querySelector("#weather").innerHTML = `<p>Error: ${err.message}</p>`;
+    document.querySelector("#weather").innerHTML = `<h1>Error</h1><p>Check Console</p>`;
   });
 
 document.querySelector("#searchBox").addEventListener("keypress", (e) => {
