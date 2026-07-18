@@ -10,8 +10,12 @@ weather
 search bar
 ketchup ad with clickable link
 
+Inspirtation
+
+My friend had a SlackBot similar to this design where it showed temp, city, and other details. I decided for my project to show it visually!
+
 How to run
 
-visit XXX
+visit https://ketchupism.github.io/Weatherism/
 
 This challenge was similar to my WebOS, and was created recommended by Hack Club
