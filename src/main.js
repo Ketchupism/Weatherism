@@ -7,7 +7,6 @@ fetch(
     const temp = current.temperature_2m ?? "--";
     const code = current.weather_code ?? 0;
     const isDay = current.is_day === 1;
-
     const description = getWeatherDescription(code, isDay);
 
     document.querySelector("#weather").innerHTML = `
@@ -75,5 +74,5 @@ function getWeatherDescription(code, isDay) {
   if (code >= 51 && code <= 67) return "Rainy";
   if (code >= 71 && code <= 86) return "Snowing";
   if (code >= 95) return "Thunderstorm";
-  return "Unknown";
+  return "Partly Cloudy";
 }
