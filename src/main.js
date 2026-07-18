@@ -10,7 +10,10 @@ fetch(
 
     const description = getWeatherDescription(code, isDay);
 
-    document.querySelector("#weather").innerHTML = `~${temp}°C<br>${description} - Toronto`;
+    document.querySelector("#weather").innerHTML = `
+      <h1>~${temp}°C</h1>
+      <p>${description} - Toronto</p>
+    `;
 
     let bgImage = "src/WINDOWS_XP.jpg";
     let tabColor = "";
@@ -44,28 +47,21 @@ fetch(
     document.querySelector("#weather").style.backgroundColor = "transparent";
 
     const topBox = document.querySelector(".top-box");
-    if (topBox) {
-      topBox.style.backgroundColor = tabColor;
-    }
-
+    if (topBox) topBox.style.backgroundColor = tabColor;
+    
     const searchBox = document.querySelector("#searchBox");
-    if (searchBox) {
-      searchBox.style.backgroundColor = tabColor;
-    }
+    if (searchBox) searchBox.style.backgroundColor = tabColor;
 
     const middleBox = document.querySelector(".middle-box");
-    if (middleBox) {
-      middleBox.style.backgroundColor = tabColor;
-    }
+    if (middleBox) middleBox.style.backgroundColor = tabColor;
   })
   .catch((err) => {
-    document.querySelector("#weather").innerHTML = `Error: ${err.message}`;
+    document.querySelector("#weather").innerHTML = `<p>Error: ${err.message}</p>`;
   });
 
 document.querySelector("#searchBox").addEventListener("keypress", (e) => {
   if (e.key === "Enter") {
-    const query = e.target.value;
-    window.location.href = `https://www.google.com/search?q=${query}`;
+    window.location.href = `https://www.google.com/search?q=${e.target.value}`;
   }
 });
 
