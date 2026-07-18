@@ -19,10 +19,9 @@ body {
   overflow: hidden;
 }
 
-/* --- WEATHER --- */
 .weather-section {
   position: absolute;
-  top: 18%; /* Moved up slightly to increase the gap */
+  top: 18%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
@@ -51,7 +50,6 @@ body {
   margin: 0;
 }
 
-/* --- MIDDLE SECTION --- */
 .middle-section {
   position: absolute;
   top: 50%;
@@ -67,7 +65,7 @@ body {
   background: #ffffffcc;
   border-radius: 20px;
   width: 550px;
-  height: 50vh; /* Made significantly longer/taller */
+  height: 50vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,10 +80,9 @@ body {
   border-radius: 10px;
 }
 
-/* --- SEARCH --- */
 .search-section {
   position: absolute;
-  top: 82%; /* Moved down slightly to increase the gap */
+  top: 82%; 
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
