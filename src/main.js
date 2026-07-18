@@ -15,34 +15,37 @@ fetch(
       <p>${description} - Toronto</p>
     `;
 
-    let bgImage = "src/WINDOWS_XP.jpg";
+    let bgImage = "WINDOWS_XP.jpg";
     let tabColor = "";
 
     if (description === "Clear sky") {
-      bgImage = "src/WINDOWS_XP.jpg";
+      bgImage = "WINDOWS_XP.jpg";
     } else if (description === "Clear night") {
-      bgImage = "src/WINDOWS_XPNIGHT.jpg";
+      bgImage = "WINDOWS_XPNIGHT.jpg";
     } else if (description === "Cloudy night") {
-      bgImage = "src/WINDOWS_XPNIGHT.jpg";
+      bgImage = "WINDOWS_XPNIGHT.jpg";
       tabColor = "darkgray";
     } else if (description === "Cloudy") {
-      bgImage = "src/WINDOWS_XPCLOUDY.jpg";
+      bgImage = "WINDOWS_XPCLOUDY.jpg";
       tabColor = "lightgray";
     } else if (description.includes("Foggy")) {
-      bgImage = "src/WINDOWS_XPFOGGY.jpg";
+      bgImage = "WINDOWS_XPFOGGY.jpg";
       tabColor = "lightgray";
     } else if (description.includes("Rainy")) {
-      bgImage = "src/WINDOWS_XPRAINY.jpg";
+      bgImage = "WINDOWS_XPRAINY.jpg";
       tabColor = "lightgray";
     } else if (description.includes("Snowing")) {
-      bgImage = "src/WINDOWS_XPSNOWY.jpg";
+      bgImage = "WINDOWS_XPSNOWY.jpg";
       tabColor = "lightgray";
     } else if (description.includes("Thunderstorm")) {
-      bgImage = "src/WINDOWS_XPTHUNDERSTORM.jpg";
+      bgImage = "WINDOWS_XPTHUNDERSTORM.jpg";
       tabColor = "lightgray";
     }
 
-    document.body.style.backgroundImage = `url('${bgImage}')`;
+    document.body.style.backgroundImage = `url('src/${bgImage}')`;
+    document.body.style.backgroundSize = "cover";
+    document.body.style.backgroundPosition = "center";
+    document.body.style.backgroundAttachment = "fixed";
 
     document.querySelector("#weather").style.backgroundColor = "transparent";
 
